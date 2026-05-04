@@ -11,4 +11,4 @@ fi
 
 systemctl stop kanata-udev.service 2>/dev/null
 
-sudo -u igorantunes DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$uid/bus notify-send "Kanata" "Keyboard connected — Kanata stopped" &
+

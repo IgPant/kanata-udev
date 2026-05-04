@@ -50,8 +50,6 @@ systemd-run --uid=$USERNAME --setenv=DISPLAY=:0 \\
     --unit=kanata-udev \\
     $KANATA_BIN -c $KANATA_CFG &
 
-sleep 3
-sudo -u $USERNAME DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/\$uid/bus notify-send "Kanata" "Keyboard disconnected - Kanata started" &
 EOF
 
 cat > "$BIN_DIR/udev-kanata-stop.sh" << EOF
@@ -66,7 +64,6 @@ fi
 
 systemctl stop kanata-udev.service 2>/dev/null
 
-sudo -u $USERNAME DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/\$uid/bus notify-send "Kanata" "Keyboard connected - Kanata stopped" &
 EOF
 
 chmod +x "$BIN_DIR/udev-kanata-start.sh" "$BIN_DIR/udev-kanata-stop.sh"

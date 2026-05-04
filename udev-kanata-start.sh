@@ -16,5 +16,4 @@ systemd-run --uid=igorantunes --setenv=DISPLAY=:0 \
 
 echo "$(date) - kanata launched via systemd-run" >> /tmp/kanata-udev.log
 
-sleep 3
-sudo -u igorantunes DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$uid/bus notify-send "Kanata" "Keyboard disconnected — Kanata started" &
+
